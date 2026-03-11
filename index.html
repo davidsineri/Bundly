@@ -1,13 +1,1172 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bundly - Sahabat Si Kecil</title>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bundly - Sahabat Bunda, Kebahagiaan Si Kecil. Perlengkapan bayi premium dengan material aman BPA Free.">
+    <title>Bundly | Sahabat Bunda, Kebahagiaan Si Kecil</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.0/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        bundly: {
+                            sage: '#87A878',
+                            sageLight: '#A8C8A0',
+                            sageDark: '#6B8E60',
+                            nude: '#E8D5C4',
+                            nudeLight: '#F5EBE0',
+                            terracotta: '#C76D4E',
+                            terracottaLight: '#E89B7D',
+                            cream: '#FFF8F0',
+                            warm: '#D4A574',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(135, 168, 120, 0.2);
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #87A878 0%, #6B8E60 100%);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(135, 168, 120, 0.4);
+        }
+        
+        .btn-secondary {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #C76D4E 0%, #A85840 100%);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(199, 109, 78, 0.4);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .fade-in-down {
+            animation: fadeInDown 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(135, 168, 120, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(135, 168, 120, 0.8); }
+        }
+        
+        .gradient-sage {
+            background: linear-gradient(135deg, #87A878 0%, #A8C8A0 50%, #87A878 100%);
+        }
+        
+        .gradient-warm {
+            background: linear-gradient(135deg, #E8D5C4 0%, #F5EBE0 50%, #E8D5C4 100%);
+        }
+        
+        .gradient-terracotta {
+            background: linear-gradient(135deg, #C76D4E 0%, #E89B7D 50%, #C76D4E 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+        }
+        
+        .product-badge {
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .whatsapp-float {
+            animation: whatsappFloat 2s ease-in-out infinite;
+        }
+        
+        @keyframes whatsappFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+        
+        .loading-spinner {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .heart-beat {
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .scroll-indicator {
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .stat-number {
+            background: linear-gradient(135deg, #87A878 0%, #C76D4E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu.closed {
+            transform: translateX(100%);
+        }
+        
+        .gallery-image {
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        
+        .trust-badge {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        
+        .trust-badge:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-bundly-cream text-gray-800 smooth-scroll overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-18 py-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 gradient-sage rounded-full flex items-center justify-center">
+                        <i class="fas fa-baby text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-serif font-bold text-bundly-sage-dark">Bundly</h1>
+                        <p class="text-xs text-gray-500 -mt-1">Sahabat Bunda</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-bundly-sage transition font-medium">Beranda</a>
+                    <a href="#products" class="text-gray-700 hover:text-bundly-sage transition font-medium">Produk</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-bundly-sage transition font-medium">Keunggulan</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-bundly-sage transition font-medium">Testimoni</a>
+                    <a href="#faq" class="text-gray-700 hover:text-bundly-sage transition font-medium">FAQ</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="https://wa.me/6285156852637" target="_blank" class="hidden md:flex items-center space-x-2 btn-primary text-white px-5 py-2.5 rounded-full font-medium">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Chat Kami</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu closed fixed top-18 left-0 right-0 bg-white shadow-lg md:hidden z-40">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">Beranda</a>
+                <a href="#products" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">Produk</a>
+                <a href="#benefits" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">Keunggulan</a>
+                <a href="#testimonials" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">Testimoni</a>
+                <a href="#faq" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">FAQ</a>
+                <a href="https://wa.me/6285156852637" target="_blank" class="flex items-center space-x-2 btn-primary text-white px-5 py-3 rounded-full font-medium">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Chat Kami</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 gradient-warm relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-full opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-bundly-sage rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-40 h-40 bg-bundly-terracotta rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-bundly-warm rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 fade-in-up">
+                    <div class="inline-flex items-center space-x-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-sm text-gray-600">🎉 Promo Spesial Hari Ini!</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-tight">
+                        Sesi Makan 
+                        <span class="text-bundly-sage-dark">Tanpa Drama</span>
+                        <br>Untuk Si Kecil
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                        Bundly hadir sebagai <strong>sahabat digital</strong> Bunda, menyediakan perlengkapan bayi yang 
+                        <strong>100% aman</strong>, estetik, dan praktis untuk pengalaman parenting yang lebih minim stres.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#products" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center space-x-2">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Belanja Sekarang</span>
+                        </a>
+                        <a href="#benefits" class="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transition">
+                            <i class="fas fa-play-circle text-bundly-sage"></i>
+                            <span>Lihat Keunggulan</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-6 pt-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shield-alt text-bundly-sage text-2xl"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">BPA Free</p>
+                                <p class="text-xs text-gray-500">100% Aman</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-leaf text-bundly-sage text-2xl"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">Food Grade</p>
+                                <p class="text-xs text-gray-500">Silicon Premium</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-truck text-bundly-sage text-2xl"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">Gratis Ongkir</p>
+                                <p class="text-xs text-gray-500">Min. Belanja</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative fade-in">
+                    <div class="relative">
+                        <img src="https://image.qwenlm.ai/public_source/c4f5f7c6-9003-411d-a408-096a912dfcd9/1db281959-3358-4cec-a9b2-83c54d65dba0.png" 
+                            alt="Silicon Feeding Set Bundly" 
+                            class="rounded-3xl shadow-2xl w-full float-animation">
+                        
+                        <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-4 product-badge">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="font-bold text-gray-900">4.9/5</span>
+                            </div>
+                            <p class="text-xs text-gray-500">500+ Review</p>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 bg-bundly-terracotta text-white rounded-2xl shadow-xl p-4">
+                            <p class="text-2xl font-bold">99K</p>
+                            <p class="text-xs opacity-80">Harga Spesial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <p class="text-gray-600 mb-4">Scroll untuk melihat lebih lanjut</p>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down text-bundly-sage text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-bundly-nude-light text-bundly-terracotta px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    💔 Masalah Bunda Sehari-hari
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Apakah Bunda Mengalami Ini?
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Kami paham betapa melelahkannya momen makan si kecil yang penuh dengan drama
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-bundly-nude-light rounded-2xl p-8 text-center card-hover">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 feature-icon">
+                        <i class="fas fa-utensils text-bundly-terracotta text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Makanan Tumpah Dimana-mana</h3>
+                    <p class="text-gray-600">Lantai, kursi, baju Bunda... semua jadi berantakan setiap kali si kecil makan</p>
+                </div>
+                
+                <div class="feature-card bg-bundly-nude-light rounded-2xl p-8 text-center card-hover">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 feature-icon">
+                        <i class="fas fa-exclamation-triangle text-bundly-terracotta text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Khawatir Bahan Berbahaya</h3>
+                    <p class="text-gray-600">Takut peralatan makan mengandung BPA atau bahan kimia yang berbahaya untuk si kecil</p>
+                </div>
+                
+                <div class="feature-card bg-bundly-nude-light rounded-2xl p-8 text-center card-hover">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 feature-icon">
+                        <i class="fas fa-clock text-bundly-terracotta text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Tidak Ada Waktu Bersih-bersih</h3>
+                    <p class="text-gray-600">Sibuk mengurus rumah dan si kecil, tidak sempat membersihkan kekacauan setelah makan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-16 gradient-sage relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-full opacity-20">
+            <div class="absolute top-10 right-20 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-20 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-white/30 backdrop-blur text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    ✨ Solusi Bundly
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+                    Silicon Feeding Set Premium 4-in-1
+                </h2>
+                <p class="text-white/90 text-lg max-w-2xl mx-auto">
+                    Solusi lengkap untuk sesi makan si kecil yang lebih tenang dan menyenangkan
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-magnet text-bundly-sage-dark text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-lg mb-2">Suction Kuat Anti-Tumpah</h3>
+                                <p class="text-white/80">Dasar piring dengan daya hisap kuat, tidak mudah terbalik meski si kecil aktif</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shield-check text-bundly-sage-dark text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-lg mb-2">100% Food Grade Silicon</h3>
+                                <p class="text-white/80">BPA Free, bebas dari bahan kimia berbahaya, aman untuk si kecil</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-thermometer-three-quarters text-bundly-sage-dark text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-lg mb-2">Tahan Panas & Dingin</h3>
+                                <p class="text-white/80">Bisa untuk makanan panas maupun dingin, microwave & freezer safe</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/20 backdrop-blur rounded-2xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-palette text-bundly-sage-dark text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white text-lg mb-2">Desain Estetik Earth-Tone</h3>
+                                <p class="text-white/80">Warna-warna lembut yang menenangkan, cocok untuk feed Instagram Bunda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://image.qwenlm.ai/public_source/c4f5f7c6-9003-411d-a408-096a912dfcd9/134137b6a-9a12-4246-b0af-189535e3e223.png" 
+                        alt="Silicon Feeding Set Detail" 
+                        class="rounded-3xl shadow-2xl w-full">
+                    
+                    <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl shadow-xl p-6 w-64">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-600">Harga Normal</span>
+                            <span class="text-gray-400 line-through">Rp 149.000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900 font-bold text-lg">Harga Bundly</span>
+                            <span class="text-bundly-terracotta font-bold text-2xl">Rp 99.000</span>
+                        </div>
+                        <div class="mt-3 bg-bundly-terracotta text-white text-center py-2 rounded-lg font-semibold">
+                            Hemat 33%!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-bundly-sage-light text-bundly-sage-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    🛍️ Produk Kami
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Pilihan Terbaik untuk Si Kecil
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Semua produk Bundly telah melalui kurasi ketat untuk keamanan dan kualitas terbaik
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-bundly-cream rounded-2xl overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://image.qwenlm.ai/public_source/c4f5f7c6-9003-411d-a408-096a912dfcd9/1db281959-3358-4cec-a9b2-83c54d65dba0.png" 
+                            alt="Feeding Set Sage Green" 
+                            class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-bundly-terracotta text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Best Seller
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-bundly-sage font-medium uppercase">Sage Green</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">Silicon Feeding Set 4-in-1</h3>
+                        <p class="text-gray-600 text-sm mb-4">Piring, mangkuk, sendok, dan gelas dalam satu set lengkap</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-400 line-through text-sm">Rp 149.000</span>
+                                <p class="text-2xl font-bold text-bundly-terracotta">Rp 99.000</p>
+                            </div>
+                            <button onclick="orderProduct('Silicon Feeding Set 4-in-1 - Sage Green', 99000)" 
+                                class="btn-primary text-white px-6 py-3 rounded-full font-medium">
+                                <i class="fab fa-whatsapp mr-2"></i>Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-bundly-cream rounded-2xl overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://image.qwenlm.ai/public_source/c4f5f7c6-9003-411d-a408-096a912dfcd9/15cc71deb-3ded-4148-a59a-61112d191309.png" 
+                            alt="Feeding Set Nude" 
+                            class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-bundly-sage text-white px-3 py-1 rounded-full text-sm font-medium">
+                            New Arrival
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-bundly-sage font-medium uppercase">Nude Pink</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">Silicon Feeding Set 4-in-1</h3>
+                        <p class="text-gray-600 text-sm mb-4">Warna lembut yang estetik untuk si kecil perempuan</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-400 line-through text-sm">Rp 149.000</span>
+                                <p class="text-2xl font-bold text-bundly-terracotta">Rp 99.000</p>
+                            </div>
+                            <button onclick="orderProduct('Silicon Feeding Set 4-in-1 - Nude Pink', 99000)" 
+                                class="btn-primary text-white px-6 py-3 rounded-full font-medium">
+                                <i class="fab fa-whatsapp mr-2"></i>Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-bundly-cream rounded-2xl overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="https://image.qwenlm.ai/public_source/c4f5f7c6-9003-411d-a408-096a912dfcd9/134137b6a-9a12-4246-b0af-189535e3e223.png" 
+                            alt="Feeding Set Terracotta" 
+                            class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-bundly-sage font-medium uppercase">Terracotta</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-2">Silicon Feeding Set 4-in-1</h3>
+                        <p class="text-gray-600 text-sm mb-4">Warna hangat yang cocok untuk semua gender</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-400 line-through text-sm">Rp 149.000</span>
+                                <p class="text-2xl font-bold text-bundly-terracotta">Rp 99.000</p>
+                            </div>
+                            <button onclick="orderProduct('Silicon Feeding Set 4-in-1 - Terracotta', 99000)" 
+                                class="btn-primary text-white px-6 py-3 rounded-full font-medium">
+                                <i class="fab fa-whatsapp mr-2"></i>Pesan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://wa.me/6285156852637?text=Halo%20Bundly%2C%20saya%20tertarik%20dengan%20produk%20Anda" 
+                    target="_blank"
+                    class="btn-secondary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center space-x-2">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Konsultasi Gratis via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-bundly-nude-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-white text-bundly-sage-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    🌟 Kenapa Bundly?
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Keunggulan Belanja di Bundly
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Kami tidak hanya menjual produk, tapi memberikan pengalaman belanja yang berbeda
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 gradient-sage rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Kurasi Ketat</h3>
+                    <p class="text-gray-600 text-sm">Hanya produk dengan material 100% aman untuk bayi</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 gradient-terracotta rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Konsultasi Gratis</h3>
+                    <p class="text-gray-600 text-sm">Tim kami siap membantu Bunda memilih produk terbaik</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 gradient-sage rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shipping-fast text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Pengiriman Cepat</h3>
+                    <p class="text-gray-600 text-sm">Proses pesanan di hari yang sama, tracking tersedia</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 text-center card-hover">
+                    <div class="w-16 h-16 gradient-terracotta rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-undo text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Garansi Kepuasan</h3>
+                    <p class="text-gray-600 text-sm">Produk rusak atau tidak sesuai? Kami ganti baru</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <p class="text-4xl md:text-5xl font-bold stat-number mb-2">500+</p>
+                    <p class="text-gray-600">Ibu Bahagia</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl md:text-5xl font-bold stat-number mb-2">1000+</p>
+                    <p class="text-gray-600">Produk Terjual</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl md:text-5xl font-bold stat-number mb-2">4.9</p>
+                    <p class="text-gray-600">Rating Bintang</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl md:text-5xl font-bold stat-number mb-2">100%</p>
+                    <p class="text-gray-600">Kepuasan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 gradient-warm relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-full opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-bundly-sage rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-40 h-40 bg-bundly-terracotta rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-white/80 backdrop-blur text-bundly-sage-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    💬 Kata Bunda Lainnya
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Testimoni dari Pelanggan
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Jangan hanya percaya pada kami, dengarkan apa kata Bunda lainnya
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Akhirnya nemu piring yang gak gampang tumpah! Si kecil jadi lebih fokus makan, Bunda juga gak stres lagi bersihin lantai. Recommended!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-bundly-sage-light rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">A</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Bunda Amanda</p>
+                            <p class="text-xs text-gray-500">Jakarta • 2 Anak</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Bahannya benar-benar aman, udah aku cek dan memang food grade. Warnanya juga cantik banget, estetik untuk foto-foto!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-bundly-terracotta-light rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">S</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Bunda Sari</p>
+                            <p class="text-xs text-gray-500">Bandung • 1 Anak</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Pelayanan super cepat dan ramah. Adminnya juga kasih tips MPASI yang berguna. Pasti bakal order lagi untuk kado temen!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-bundly-warm rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">R</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Bunda Rina</p>
+                            <p class="text-xs text-gray-500">Surabaya • 2 Anak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-bundly-nude-light text-bundly-terracotta px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    ❓ FAQ
+                </span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Pertanyaan yang Sering Diajukan
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    Temukan jawaban untuk pertanyaan umum seputar Bundly
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item bg-bundly-cream rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 flex justify-between items-center text-left">
+                        <span class="font-semibold text-gray-900">Apakah produk Bundly benar-benar BPA Free?</span>
+                        <i id="faq-icon-1" class="fas fa-chevron-down text-bundly-sage transition-transform"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 pb-4">
+                        <p class="text-gray-600">Ya, 100%! Semua produk Bundly terbuat dari silicon food grade yang telah melalui uji laboratorium. Bebas BPA, PVC, dan bahan kimia berbahaya lainnya. Aman untuk si kecil.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-bundly-cream rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 flex justify-between items-center text-left">
+                        <span class="font-semibold text-gray-900">Berapa lama pengiriman?</span>
+                        <i id="faq-icon-2" class="fas fa-chevron-down text-bundly-sage transition-transform"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 pb-4">
+                        <p class="text-gray-600">Untuk area Jabodetabek, estimasi 1-3 hari kerja. Luar Jawa 3-7 hari kerja. Kami proses pesanan di hari yang sama jika order sebelum pukul 15.00 WIB.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-bundly-cream rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 flex justify-between items-center text-left">
+                        <span class="font-semibold text-gray-900">Apakah ada garansi jika produk rusak?</span>
+                        <i id="faq-icon-3" class="fas fa-chevron-down text-bundly-sage transition-transform"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 pb-4">
+                        <p class="text-gray-600">Tentu! Jika produk diterima dalam kondisi rusak, kami akan ganti dengan produk baru. Cukup kirimkan foto produk rusak ke WhatsApp kami dalam 24 jam setelah penerimaan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-bundly-cream rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(4)" class="w-full px-6 py-4 flex justify-between items-center text-left">
+                        <span class="font-semibold text-gray-900">Bisa bayar dengan metode apa saja?</span>
+                        <i id="faq-icon-4" class="fas fa-chevron-down text-bundly-sage transition-transform"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden px-6 pb-4">
+                        <p class="text-gray-600">Kami menerima transfer bank (BCA, Mandiri, BNI), e-wallet (GoPay, OVO, Dana), dan QRIS. Pembayaran diproses setelah konfirmasi transfer diterima.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-bundly-cream rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(5)" class="w-full px-6 py-4 flex justify-between items-center text-left">
+                        <span class="font-semibold text-gray-900">Apakah bisa untuk hadiah/kado?</span>
+                        <i id="faq-icon-5" class="fas fa-chevron-down text-bundly-sage transition-transform"></i>
+                    </button>
+                    <div id="faq-content-5" class="hidden px-6 pb-4">
+                        <p class="text-gray-600">Bisa banget! Kami menyediakan packaging gift box khusus untuk kado. Cukup informasikan saat order, dan kami akan kirimkan langsung ke alamat penerima dengan kartu ucapan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-sage relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-full opacity-20">
+            <div class="absolute top-10 right-20 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-20 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
+                Siap Membuat Sesi Makan Si Kecil Lebih Tenang?
+            </h2>
+            <p class="text-white/90 text-lg mb-8">
+                Bergabunglah dengan 500+ Bunda lainnya yang telah merasakan manfaat produk Bundly
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="orderProduct('Silicon Feeding Set 4-in-1', 99000)" 
+                    class="bg-white text-bundly-sage-dark px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transition">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Pesan Sekarang - Rp 99.000</span>
+                </button>
+                <a href="https://wa.me/6285156852637?text=Halo%20Bundly%2C%20saya%20mau%20tanya-tanya%20dulu" 
+                    target="_blank"
+                    class="bg-bundly-terracotta text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transition">
+                    <i class="fas fa-comments"></i>
+                    <span>Tanya Dulu</span>
+                </a>
+            </div>
+            <p class="text-white/70 text-sm mt-6">
+                <i class="fas fa-truck mr-2"></i>Gratis ongkir untuk pembelian 2 set atau lebih
+            </p>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-12 bg-bundly-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <p class="text-gray-600">Dipercaya oleh Bunda di seluruh Indonesia</p>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt text-4xl text-gray-400"></i>
+                    <p class="text-xs text-gray-500 mt-2">Aman & Terpercaya</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-medal text-4xl text-gray-400"></i>
+                    <p class="text-xs text-gray-500 mt-2">Kualitas Premium</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-heart text-4xl text-gray-400"></i>
+                    <p class="text-xs text-gray-500 mt-2">100% Kepuasan</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-clock text-4xl text-gray-400"></i>
+                    <p class="text-xs text-gray-500 mt-2">Respon Cepat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 gradient-sage rounded-full flex items-center justify-center">
+                            <i class="fas fa-baby text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-serif font-bold">Bundly</h3>
+                            <p class="text-xs text-gray-400">Sahabat Bunda</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Menjadi sahabat digital paling terpercaya bagi para Ibu di Indonesia dalam menyediakan solusi perlengkapan anak yang aman dan estetik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/bundly" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://tiktok.com/@bundly" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/6285156852637" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Navigasi</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#home" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#products" class="hover:text-white transition">Produk</a></li>
+                        <li><a href="#benefits" class="hover:text-white transition">Keunggulan</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition">Testimoni</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex items-center space-x-2">
+                            <i class="fab fa-whatsapp text-bundly-sage"></i>
+                            <span>+62 851-5685-2637</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-bundly-sage"></i>
+                            <span>hello@bundly.id</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-bundly-sage"></i>
+                            <span>08.00 - 21.00 WIB</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Pembayaran</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">BCA</span>
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">Mandiri</span>
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">BNI</span>
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">GoPay</span>
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">OVO</span>
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">DANA</span>
+                        <span class="bg-white/10 px-3 py-2 rounded text-xs">QRIS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Bundly. All rights reserved.</p>
+                <p class="mt-2">Built with ❤️ for Indonesian Moms | Tech-Leveraged Dropship</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6285156852637?text=Halo%20Bundly%2C%20saya%20tertarik%20dengan%20produk%20Anda" 
+        target="_blank"
+        class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:bg-green-600 transition">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden fade-in-up">
+            <div class="gradient-sage p-6 text-white">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-serif font-bold">Konfirmasi Pesanan</h2>
+                    <button onclick="closeOrderModal()" class="text-white/80 hover:text-white">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6 space-y-4">
+                <div class="bg-bundly-cream rounded-xl p-4">
+                    <p class="text-sm text-gray-600 mb-2">Produk</p>
+                    <p id="order-product-name" class="font-semibold text-gray-900"></p>
+                </div>
+                
+                <div class="bg-bundly-cream rounded-xl p-4">
+                    <p class="text-sm text-gray-600 mb-2">Harga</p>
+                    <p id="order-product-price" class="font-bold text-bundly-terracotta text-xl"></p>
+                </div>
+                
+                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-info-circle text-yellow-600 mt-1"></i>
+                        <div>
+                            <p class="text-sm text-yellow-800 font-medium">Anda akan diarahkan ke WhatsApp</p>
+                            <p class="text-xs text-yellow-700 mt-1">Tim Bundly akan memproses pesanan Anda setelah konfirmasi pembayaran</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <button onclick="confirmOrder()" class="btn-primary w-full text-white py-4 rounded-xl font-semibold">
+                        <i class="fab fa-whatsapp mr-2"></i>Lanjut ke WhatsApp
+                    </button>
+                    <button onclick="closeOrderModal()" class="w-full bg-gray-100 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-200 transition">
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // WhatsApp Number - UPDATED
+        const WHATSAPP_NUMBER = '6285156852637';
+        
+        // Current order state
+        let currentOrder = {
+            product: '',
+            price: 0
+        };
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+            menu.classList.toggle('closed');
+        }
+
+        // Toggle FAQ
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Order Product
+        function orderProduct(productName, price) {
+            currentOrder = { product: productName, price: price };
+            document.getElementById('order-product-name').textContent = productName;
+            document.getElementById('order-product-price').textContent = formatRupiah(price);
+            document.getElementById('order-modal').classList.remove('hidden');
+        }
+
+        // Close Order Modal
+        function closeOrderModal() {
+            document.getElementById('order-modal').classList.add('hidden');
+        }
+
+        // Confirm Order - Redirect to WhatsApp
+        function confirmOrder() {
+            const message = `Halo Bundly! 🌸
+
+Saya ingin memesan:
+📦 Produk: ${currentOrder.product}
+💰 Harga: ${formatRupiah(currentOrder.price)}
+
+Mohon informasi lebih lanjut untuk proses pembayaran. Terima kasih!`;
+
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            closeOrderModal();
+        }
+
+        // Format Rupiah
+        function formatRupiah(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close modal on outside click
+        document.getElementById('order-modal')?.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('order-modal')) {
+                closeOrderModal();
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover, .feature-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Console welcome message
+        console.log('%c🌸 Bundly - Sahabat Bunda, Kebahagiaan Si Kecil', 'color: #87A878; font-size: 20px; font-weight: bold;');
+        console.log('%cBuilt with ❤️ for Indonesian Moms | Tech-Leveraged Dropship', 'color: #C76D4E; font-size: 14px;');
+        console.log('%c📞 WhatsApp: +62 851-5685-2637', 'color: #25D366; font-size: 14px; font-weight: bold;');
+    </script>
+</body>
 </html>
+
