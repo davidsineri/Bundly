@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bundly - Sahabat Bunda, Kebahagiaan Si Kecil. Perlengkapan bayi premium dengan material aman BPA Free.">
-    <title>Bundly | Sahabat Bunda, Kebahagiaan Si Kecil</title>
+    <meta name="description" content="Bundly - Sahabat Tumbuh Kembang Si Kecil. Perlengkapan bayi premium dengan material aman BPA Free.">
+    <title>Bundly | Sahabat Tumbuh Kembang Si Kecil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.0/index.css">
@@ -234,21 +234,51 @@
             filter: grayscale(0%);
             opacity: 1;
         }
+        
+        .logo-container {
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-svg {
+            height: 50px;
+            width: auto;
+        }
     </style>
 </head>
 <body class="bg-bundly-cream text-gray-800 smooth-scroll overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-18 py-3">
-                <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 gradient-sage rounded-full flex items-center justify-center">
-                        <i class="fas fa-baby text-white text-xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl font-serif font-bold text-bundly-sage-dark">Bundly</h1>
-                        <p class="text-xs text-gray-500 -mt-1">Sahabat Bunda</p>
-                    </div>
+            <div class="flex justify-between items-center h-20 py-3">
+                <div class="flex items-center space-x-3 logo-container">
+                    <a href="#home">
+                        <!-- Bundly Logo SVG -->
+                        <svg class="logo-svg" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Icon - Mother & Baby Heart Shape -->
+                            <g transform="translate(0, 5)">
+                                <!-- Outer heart/leaf shape -->
+                                <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 70 C45 65, 60 55, 60 35 C60 20, 50 5, 35 5Z" 
+                                    stroke="#87A878" stroke-width="3" fill="none"/>
+                                <!-- Inner curve - Mother's head -->
+                                <ellipse cx="35" cy="25" rx="12" ry="15" 
+                                    stroke="#87A878" stroke-width="2.5" fill="none"/>
+                                <!-- Baby curve -->
+                                <path d="M25 45 C25 45, 30 55, 40 55 C45 55, 48 50, 50 45" 
+                                    stroke="#87A878" stroke-width="2.5" fill="none"/>
+                                <!-- Heart accent -->
+                                <path d="M30 50 C28 50, 26 52, 26 54 C26 57, 30 60, 35 60 C40 60, 44 57, 44 54 C44 52, 42 50, 40 50" 
+                                    fill="#E8D5C4"/>
+                            </g>
+                            <!-- Text "BUNDLY" -->
+                            <text x="75" y="52" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#87A878" letter-spacing="2">BUNDLY</text>
+                            <!-- Tagline -->
+                            <text x="75" y="68" font-family="Inter, sans-serif" font-size="10" fill="#6B8E60" letter-spacing="0.5">Sahabat Tumbuh Kembang Si Kecil</text>
+                        </svg>
+                    </a>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
@@ -272,7 +302,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu closed fixed top-18 left-0 right-0 bg-white shadow-lg md:hidden z-40">
+        <div id="mobile-menu" class="mobile-menu closed fixed top-20 left-0 right-0 bg-white shadow-lg md:hidden z-40">
             <div class="px-4 py-6 space-y-4">
                 <a href="#home" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">Beranda</a>
                 <a href="#products" onclick="toggleMobileMenu()" class="block text-gray-700 hover:text-bundly-sage py-2">Produk</a>
@@ -918,13 +948,21 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 gradient-sage rounded-full flex items-center justify-center">
-                            <i class="fas fa-baby text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-serif font-bold">Bundly</h3>
-                            <p class="text-xs text-gray-400">Sahabat Bunda</p>
-                        </div>
+                        <!-- Footer Logo SVG (White Version) -->
+                        <svg class="h-12 w-auto" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(0, 5)">
+                                <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 70 C45 65, 60 55, 60 35 C60 20, 50 5, 35 5Z" 
+                                    stroke="#A8C8A0" stroke-width="3" fill="none"/>
+                                <ellipse cx="35" cy="25" rx="12" ry="15" 
+                                    stroke="#A8C8A0" stroke-width="2.5" fill="none"/>
+                                <path d="M25 45 C25 45, 30 55, 40 55 C45 55, 48 50, 50 45" 
+                                    stroke="#A8C8A0" stroke-width="2.5" fill="none"/>
+                                <path d="M30 50 C28 50, 26 52, 26 54 C26 57, 30 60, 35 60 C40 60, 44 57, 44 54 C44 52, 42 50, 40 50" 
+                                    fill="#E89B7D"/>
+                            </g>
+                            <text x="75" y="52" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#A8C8A0" letter-spacing="2">BUNDLY</text>
+                            <text x="75" y="68" font-family="Inter, sans-serif" font-size="10" fill="#A8C8A0" letter-spacing="0.5">Sahabat Tumbuh Kembang Si Kecil</text>
+                        </svg>
                     </div>
                     <p class="text-gray-400 text-sm mb-4">
                         Menjadi sahabat digital paling terpercaya bagi para Ibu di Indonesia dalam menyediakan solusi perlengkapan anak yang aman dan estetik.
@@ -1045,7 +1083,7 @@
     </div>
 
     <script>
-        // WhatsApp Number - UPDATED
+        // WhatsApp Number
         const WHATSAPP_NUMBER = '6285156852637';
         
         // Current order state
@@ -1163,7 +1201,7 @@ Mohon informasi lebih lanjut untuk proses pembayaran. Terima kasih!`;
         });
 
         // Console welcome message
-        console.log('%c🌸 Bundly - Sahabat Bunda, Kebahagiaan Si Kecil', 'color: #87A878; font-size: 20px; font-weight: bold;');
+        console.log('%c🌸 Bundly - Sahabat Tumbuh Kembang Si Kecil', 'color: #87A878; font-size: 20px; font-weight: bold;');
         console.log('%cBuilt with ❤️ for Indonesian Moms | Tech-Leveraged Dropship', 'color: #C76D4E; font-size: 14px;');
         console.log('%c📞 WhatsApp: +62 851-5685-2637', 'color: #25D366; font-size: 14px; font-weight: bold;');
     </script>
